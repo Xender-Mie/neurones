@@ -1,4 +1,4 @@
-#include "neurone.h"
+#include "network.h"
 #include <stdio.h>
 #include <stdlib.h>
 
