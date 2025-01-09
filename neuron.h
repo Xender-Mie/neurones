@@ -14,7 +14,7 @@ typedef struct {
  * @param bias The way du neurone.
  * @return The new neuron.
  */
-neuron InitNeur(int NbParameters, list weight, int bias);
+neuron InitNeur(int NbParameters, list weights, int bias);
 
 /**
  * Fonction that compute the output of a neuron in depend of a given list of entries.
