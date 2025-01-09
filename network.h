@@ -1,50 +1,50 @@
-#ifndef RESEAU_H
-#define RESEAU_H
-#include "couche_neurones.h"
+#ifndef NETWORK_H
+#define NETWORK_H
+#include "layer_neurons.h"
 
-typedef struct elem_reseau {
-    couche_neurones couche;
-    struct elem_reseau* suivant;
-}element_reseau;
+typedef struct elemNet {
+    LayerNeurons layer;
+    struct elemNet* next;
+}elementNetwork;
 
-typedef element_reseau* reseau;
-
-/**
- * Fonction qui permet de créer un réseau neuronale quivant un nombre de couche et d'entrées fixés.
- * @param nb_couches Le nombre de couche du réseau.
- * @param nb_neurones le nombre de neurones par couche.
- * @param nb_entrees Le nombre d'entrées du réseau.
- * @return
- */
-reseau CreerResNeur(int nb_couches, list nb_neurones, int nb_entrees);
+typedef elementNetwork* network;
 
 /**
- * Fonction qui permet d'initialiser un réseau neuronale.
+ * Function that creates a neural network with a fixed number of layers and inputs.
+ * @param NbLayer The number of layer in the network.
+ * @param NbNeurons The number of neurons per layer.
+ * @param NbEntries The number of entries of the network.
  * @return
  */
-reseau InitResNeur();
+network CreatNetwork(int NbLayer, list NbNeurons, int NbEntries);
 
 /**
- * Fonction qui permet de calculer la sortie d'un réseau neuronale sous forme de liste chaînée.
- * @param res Le réseaux dont on calcul la sortie.
- * @param entrees Liste des entrées du réseaux.
+ * Function that initializes a neural network.
  * @return
  */
-list OutResNeur(reseau res, list entrees);
+network InitNetwork();
 
 /**
- * Fonction qui permet d'ajouter une couche en tête d'un réseau.
- * @param res Le réseau auquel on veut ajouter une couche.
- * @param couche La couche à ajouter.
+ * Function that calculates the output of a neural network in the form of a chained list.
+ * @param net The network from which the output is calculated.
+ * @param entries List of the entries of the network.
  * @return
  */
-reseau ajout_tete_reseau(reseau res, couche_neurones couche);
+list OutNetwork(network net, list entries);
 
 /**
- * Fonction qui permet d'ajouter une couche en queu à une réseau.
- * @param res Le réseau auquel on veut ajouter une couche.
- * @param couche La couche à ajouter.
+ * Function that adds a layer at the top of a network.
+ * @param net The network to which you want to add a layer.
+ * @param layer The layer to add.
  * @return
  */
-reseau ajout_fin_reseau(reseau res, couche_neurones couche);
-#endif //RESEAU_H
+network addHeadNet(network net, LayerNeurons layer);
+
+/**
+ * Function that adds a layer at the end of a network.
+ * @param net The network to which you want to add a layer.
+ * @param layer The layer to add.
+ * @return
+ */
+network addTailNet(network net, LayerNeurons layer);
+#endif //NETWORK_H
