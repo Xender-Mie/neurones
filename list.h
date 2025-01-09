@@ -2,53 +2,53 @@
 #define LIST_H
 
 typedef struct elem {
-    int valeur;
-    struct elem* suivant;
+    int value;
+    struct elem* next;
 }element;
 
 typedef element* list;
 
 /**
- * Fonction qui permet d'ajouter un nouvel élément en tête de liste.
- * @param l La liste que l'on souhaite modifier.
- * @param valeur La valeur à rejouter.
- * @return La liste modifiée.
+ * Function that allows you to add a new item at the top of the list.
+ * @param l The list where we add a new element.
+ * @param value The value to add.
+ * @return The modified list.
  */
-list  ajout_tete(list l, int valeur);
+list  addHead(list l, int value);
 
 /**
- * Fonction qui permet d'ajouter un élément en queu de liste.
- * @param l La liste que l'on souhaite modifier.
- * @param valeur La valeur à ajouter.
- * @return La liste modifiée.
+ * Function that allows you to add an item in the list.
+ * @param l The list where we add a new element.
+ * @param valeur The value to add.
+ * @return The modified list.
  */
-list  ajout_fin(list l, int valeur);
+list  addTail(list l, int valeur);
 
 /**
- * Fonction qui permet de supprimer l'élément en tête d'une liste.
- * @param l La liste que l'on souhaite modifier.
- * @return La liste modifiée.
+ * Function that removes the item at the top of a list.
+ * @param l The list where we remove a element.
+ * @return The modified list.
  */
-list  supp_tete(list l);
+list  deleteHead(list l);
 
 /**
- * Fonction qui permet de supperimer un élément en queu d'une liste.
- * @param l La liste que l'on souhaite modifier.
- * @return La liste modifiée.
+ * Function that allows to add an item in a list.
+ * @param l The list where we remove a element.
+ * @return The modified list.
  */
-list  supp_fin(list l);
+list  deleteTail(list l);
 
 /**
- * Fonction qui permet de compter le nombre d'éléments d'une liste chainée.
- * @param l La liste que l'on souhaite compter.
- * @return Le nombre d'élément de la liste.
+ * Function that counts the number of items in a chained list.
+ * @param l The list we want to count.
+ * @return The number of element of the list.
  */
-int compter_elements(list l);
+int countElement(list l);
 
 /**
- * Procédure permettant d'afficher une liste.
- * @param l La à afficher.
+ * Procedure for displaying a list.
+ * @param l The list the display.
  */
-void afficher_liste(list l);
+void printList(list l);
 
 #endif //LIST_H
