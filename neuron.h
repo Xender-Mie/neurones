@@ -8,7 +8,7 @@ typedef struct {
 }neuron;
 
 /**
- * Fonction that initialize a new neuron with given parameters.
+ * Function that initialize a new neuron with given parameters.
  * @param NbParameters Number of entry that the neuron can take.
  * @param weight The weights associated to each entry.
  * @param bias The way du neurone.
@@ -17,7 +17,7 @@ typedef struct {
 neuron InitNeur(int NbParameters, list weights, int bias);
 
 /**
- * Fonction that compute the output of a neuron in depend of a given list of entries.
+ * Function that compute the output of a neuron in depend of a given list of entries.
  * @param neur Neuron that we compute the output.
  * @param entries Entries list.
  * @param NbEntries Entries number.
