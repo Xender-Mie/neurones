@@ -16,7 +16,7 @@ typedef elementLayer* LayerNeurons;
  * @param NbEntries Number of neurons input.
  * @return
  */
-LayerNeurons InitCouche(int NbNeurons, int NbEntries);
+LayerNeurons InitLayer(int NbNeurons, int NbEntries);
 
 /**
  * Function that allows to calculate the list of outputs of a neurone’s skin.
@@ -25,6 +25,6 @@ LayerNeurons InitCouche(int NbNeurons, int NbEntries);
  * @param NbEntries Number of entries of the layer.
  * @return
  */
-list Outcouche(LayerNeurons layer, list entries, int NbEntries);
+list OutLayer(LayerNeurons layer, list entries, int NbEntries);
 
 #endif //LAYER_NEURONS_H
