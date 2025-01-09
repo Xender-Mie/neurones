@@ -2,73 +2,71 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-list ajout_tete(list l, int valeur) {
-    //On créer un nouvel élément:
+list  addHead(list l, int value) {
+    //We creat a new element:
     list newel = (element*) malloc(sizeof(element));
+    newel->value=value;
 
-    //On créer un nouvel élément:
-    newel->valeur=valeur;
+    //The address of the following element is assigned to the new element:
+    newel->next=l;
 
-    //On assigne l'adresse de l'élément suivant au nouvel élément:
-    newel->suivant=l;
-
-    //On retourne la nouvelle liste:
+    //We return the new list:
     return newel;
 }
 
-list ajout_fin(list l, int valeur) {
-    //On créer un nouvel élément:
+list  addTail(list l, int valeur) {
+    //We creat a new element:
     list newel = (element*) malloc(sizeof(element));
 
-    //On assigne la valeur du nouvel élément:
-    newel->valeur=valeur;
+    //We assign the value of the new element:
+    newel->value=value;
 
-    //On déclare l'adresse de l'élément suivant comme nul:
-    newel->suivant=NULL;
+    //The address of the following item is declared as null:
+    newel->next=NULL;
 
-    //Si la liste est vide il suffit de renvoyer l'élément créé:
+    //If the list is empty, just return the created item:
     if (l==NULL) {
         return newel;
-    } else { //Sinon on parcourt la liste à l'aide d'un pointeur temporaire et on indique que le dernier élément de la liste est relié au nouvel élément
+    } else { //Otherwise, we run the list using a temporary pointer and indicate that the last item in the list is linked to the new item:
         list temp=l;
-        while (temp->suivant!=NULL) {
-            temp=temp->suivant;
+        while (temp->next!=NULL) {
+            temp=temp->next;
         }
-        temp->suivant=newel;
+        temp->next=newel;
         return l;
     }
 
-    //On retourne la nouvelle liste:
+    //We return the new list:
     return l;
 }
 
-list supp_tete(list l) {
+list  deleteHead(list l) {
     if(l!=NULL) {
-        //Si la liste est non vide on se prépare à renvoyer l'adresse de l'élément en 2ème position:
-        list aRenvoyer=l->suivant;
-        //On libère le premier élément:
+        //If the list is not empty, we prepare to return the address of the element in 2nd position:
+        list temp=l->next;
+        //We release the first element:
         free(l);
-        //On retourne le nouveau début de la liste:
-        return aRenvoyer;
+        //Returns the new start of the list:
+        return temp;
     } else {
         return NULL;
     }
 }
 
-list supp_fin(list l) {
-    //On accède à la fin de la liste:
+list  deleteTail(list l) {
+    //Go to the end of the list:
     list temp=l;
-    while (temp->suivant!=NULL) {
-        temp=temp->suivant;
+    while (temp->next!=NULL) {
+        temp=temp->next;
     }
 
-    //On libère l'espace mémoire contenant la queu:
+    //We free the memory space containing the tail:
     free(l);
 
-    //On assigne l'adresse de la nouvelle queu:
-    temp->suivant=NULL;
+    //The address of the new location is assigned:
+    temp->next=NULL;
 
-    //On retourne la nouvelle liste:
+    //Returns the new list:
     return temp;
 }
 
@@ -84,17 +82,17 @@ int compter_elements(list l) {
     return compteur;
 }
 
-void afficher_liste(list l) {
-    //Si la liste est vide alors on en informe l'utilisateur:
+int countElement(list l) {
+    //If the list is empty we inform the user:
     if (l == NULL) {
-        printf("La liste est vide.\n");
+        printf("The list is empty.\n");
         return;
     }
 
-    //Sinon on parcour une liste temporaire pour ne pas modifier la liste d'origine:
+    //Otherwise we browse a temporary list to not change the original list:
     list temp=l;
     while (temp != NULL) {
-        printf("%d -> ", temp->valeur);
-        temp = temp->suivant;
+        printf("%d -> ", temp->value);
+        temp = temp->next;
     }
 }
