@@ -44,6 +44,6 @@ int network4();
  * Function that compute the asked network during my LO21 orals.
  * @return The out value (0 ou 1).
  */
-int viva();
+int orals();
 
 #endif //EXAMPLES_H
